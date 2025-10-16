@@ -1,0 +1,377 @@
+/* General styling for the page */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container {
+    max-width: 1100px; /* Slightly wider for new Actions column */
+    margin: 20px;
+    padding: 20px;
+    margin-left: 300px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    flex-grow: 1;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* Filter section */
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.filter-section label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.filter-section input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* New: Add Family Section Styling */
+.add-family-section {
+    width: 1100px;
+    background: #e8f5e8;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    margin-left: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-family-section h2 {
+    text-align: center;
+    color: #27ae60;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.add-family-btn {
+    padding: 10px 15px;
+    background-color: #27ae60; /* Green for addition */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+    width: 150px;
+}
+
+.add-family-btn:hover {
+    background-color: #219a52;
+}
+
+/* New: Clear All Button Styling */
+.clear-all-btn {
+    padding: 10px 5px;
+    background-color: #dc3545; /* Red for caution */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+    width: 150px;
+}
+
+.clear-all-btn:hover {
+    background-color: #c82333;
+}
+
+.clear-all-btn:active {
+    background-color: #a71e2a;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: block;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #2c3e50;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* New: Actions column header (narrower) */
+th:last-child, td:last-child {
+    width: 80px; /* Narrow column for the Clear button */
+    text-align: center;
+}
+
+/* Style for all number inputs in table cells */
+td input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+td input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+/* Styling for the new Delete button */
+.delete-family-btn {
+    padding: 4px 8px;
+    margin-top: 4px;
+    background-color: #dc3545; /* Red for caution */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.delete-family-btn:hover {
+    background-color: #c82333;
+}
+
+.delete-family-btn:active {
+    background-color: #a71e2a;
+}
+
+/* Ensure buttons stack nicely on small screens */
+@media (max-width: 600px) {
+    .clear-family-btn, .delete-family-btn {
+        display: block;
+        margin-top: 5px;
+        margin-left: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+/* Individual Clear Button Styling (per row) */
+.clear-family-btn {
+    padding: 4px 8px;
+    background-color: #dc3545; /* Red for caution */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.clear-family-btn:hover {
+    background-color: #c82333;
+}
+
+.clear-family-btn:active {
+    background-color: #a71e2a;
+}
+
+/* Summary Area Styling */
+.summary-section {
+    max-width: 1100px; /* Match container width */
+    margin: 20px;
+    padding: 20px;
+    margin-left: 300px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#summary-content {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#summary-content div {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#summary-content div strong {
+    color: #333;
+}
+
+#summary-content div:nth-child(odd) {
+    background-color: #e9f5ff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#summary-content div:nth-child(even) {
+    background-color: #d6f0d1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Count Box Styling */
+.count-box {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Footer styling */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px;
+    background: #2c3e50;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .container, .summary-section {
+        width: 100%;
+        padding: 15px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    td input[type="number"] {
+        width: 50px;
+    }
+
+    .clear-family-btn {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+
+    th:last-child, td:last-child {
+        width: 60px;
+    }
+
+    .count-box {
+        font-size: 18px;
+    }
+
+    .add-family-section {
+        padding: 15px;
+    }
+
+    .form-group input {
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    .clear-all-btn, .add-family-btn {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container, .summary-section {
+        width: 90%;
+        padding: 20px;
+    }
+
+    table th, table td {
+        padding: 10px;
+    }
+
+    td input[type="number"] {
+        width: 70px;
+    }
+
+    th:last-child, td:last-child {
+        width: 70px;
+    }
+
+    .count-box {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container, .summary-section {
+        width: 80%;
+    }
+
+    table th, table td {
+        padding: 12px;
+    }
+
+    td input[type="number"] {
+        width: 60px;
+    }
+
+    th:last-child, td:last-child {
+        width: 80px;
+    }
+
+    .count-box {
+        font-size: 20px;
+    }
+}
