@@ -820,7 +820,58 @@ function clearAllData() {
     }
 }
 
+// --- NEW FUNCTION: Export Data to CSV ---
+function exportToCSV() {
+    if (families.length === 0) {
+        alert("There is no data to export.");
+        return;
+    }
 
+    // 1. Define the CSV Header (Columns requested by the user)
+    const headers = [
+        "Family Name",
+        "Area",
+        "Haldi Invite",
+        "Walima Invite",
+        "Money Given"
+    ];
+    
+    // 2. Map the data to the CSV rows
+    const csvRows = families.map(family => {
+        return [
+            `"${family.name.replace(/"/g, '""')}"`, // Handle names with commas/quotes by wrapping in quotes
+            `"${family.area.replace(/"/g, '""')}"`,
+            family.haldiInvite || 0,
+            family.walimaInvite || 0,
+            family.moneyGiven || 0
+        ].join(','); // Join the values with commas
+    });
+
+    // 3. Combine header and rows
+    const csvContent = [
+        headers.join(','), // First row is the header
+        ...csvRows        // Rest are the data rows
+    ].join('\n'); // Join all rows with a newline character
+
+    // 4. Create a Blob and trigger download
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    
+    // Create a timestamped filename (e.g., Invitation_Data_20251027.csv)
+    const today = new Date();
+    const dateString = today.toISOString().slice(0, 10).replace(/-/g, '');
+    link.setAttribute('download', `Invitation_Data_${dateString}.csv`);
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    alert(`Data for ${families.length} families exported successfully to CSV!`);
+}
+// ------------------------------------------
 // Function to render the area-wise summary
 function renderSummary() {
     let totalMembersCount = 0;
@@ -875,8 +926,10 @@ areaFilter.addEventListener('input', renderTable);
 nameFilter.addEventListener('input', renderTable);
 
 // Button Event Listeners
+const exportCsvBtn = document.getElementById('export-csv-btn'); // Get the new button
 clearAllBtn.addEventListener('click', clearAllData);
 addFamilyBtn.addEventListener('click', addNewFamily);
+exportCsvBtn.addEventListener('click', exportToCSV); // NEW LISTENER
 
 // Initial rendering of the table when the page loads
 renderTable();
