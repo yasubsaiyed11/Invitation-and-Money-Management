@@ -22,6 +22,9 @@
             <button id="clear-all-btn" class="clear-all-btn">Clear All Data</button>
             <button id="export-csv-btn" class="add-family-btn">Export Data (CSV)</button> </div>
 
+        <button onclick="exportData()">Download Backup</button>
+<input type="file" id="importFile" onchange="importData(event)">
+
         <table id="family-table">
             <thead>
                 <tr>
@@ -92,6 +95,7 @@
 </body>
 
 </html>
+
 
 
 
