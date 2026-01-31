@@ -933,3 +933,26 @@ exportCsvBtn.addEventListener('click', exportToCSV); // NEW LISTENER
 
 // Initial rendering of the table when the page loads
 renderTable();
+
+// Function to download data as a file
+function exportData() {
+    const data = JSON.stringify(localStorage);
+    const blob = new Blob([data], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'family_backup.json';
+    a.click();
+}
+
+// Function to upload a file and save it to storage
+function importData(event) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const data = JSON.parse(e.target.result);
+        Object.keys(data).forEach(k => localStorage.setItem(k, data[k]));
+        alert("Data Imported! Refreshing...");
+        location.reload();
+    };
+    reader.readAsText(event.target.files[0]);
+}
