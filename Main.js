@@ -512,6 +512,7 @@ const defaultFamilies = [
     { name: 'Maulana Ali Naqi', area: 'Others', members: 0 },
     { name: 'Maulana Haider Mehndi', area: 'Others', members: 0 },
     { name: 'Maulana Mohammed Raza Gadhvi', area: 'Others', members: 0 },
+    { name: 'Maulana Rafat Abbas', area: 'Others', members: 0 },
     { name: 'Maulana Mohammedsaab Rizvi', area: 'Others', members: 0 },
     { name: 'Maulana Zaer Naqvi (Astodiya)', area: 'Others', members: 0 },
     { name: 'Maulana Zafarul Hasan', area: 'Others', members: 0 },
